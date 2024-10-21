@@ -7,23 +7,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient"
-    tools:context=".Login">
+    tools:context=".login">
 
     <ImageView
         android:id="@+id/luffy"
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:layout_height="match_parent"
         android:contentDescription="@string/fondo_app"
         android:scaleType="centerInside"
         android:src="@drawable/luffy"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/main"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/logo"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="20dp"
         android:contentDescription="@string/logo"
         android:src="@drawable/logillo"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,24 +68,21 @@
 
     <Button
         android:id="@+id/boton1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
         android:text="@string/boton_login"
+        android:onClick="loginToMain"
         app:layout_constraintStart_toStartOf="@id/guialinea1"
         app:layout_constraintEnd_toEndOf="@id/guialinea2"
         app:layout_constraintTop_toBottomOf="@id/input_password"
-        android:backgroundTint="@color/red" />
+        style="@style/buttonflat" />
 
     <Button
         android:id="@+id/boton2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
         android:text="@string/sing_up"
+        android:onClick="openSignup"
         app:layout_constraintStart_toStartOf="@id/guialinea1"
         app:layout_constraintEnd_toEndOf="@id/guialinea2"
         app:layout_constraintTop_toBottomOf="@id/boton1"
-        android:backgroundTint="@color/gray"
-        android:textColor="@color/black"/>
+        style="@style/buttonOutLined" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guialinea1"
