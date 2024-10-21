@@ -7,17 +7,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient"
-    tools:context=".login">
+    tools:context=".sign_up">
 
     <ImageView
-        android:id="@+id/luffy"
+        android:id="@+id/zoro"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="500dp"
         android:contentDescription="@string/fondo_app"
-        android:scaleType="fitEnd"
-        android:src="@drawable/luffy"
+        android:scaleType="centerInside"
+        android:src="@drawable/zoro"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@id/main" />
 
     <ImageView
         android:id="@+id/logo"
@@ -37,7 +37,7 @@
         app:layout_constraintEnd_toEndOf="@id/guialinea2"
         app:layout_constraintStart_toStartOf="@id/guialinea1"
         app:layout_constraintTop_toBottomOf="@+id/logo"
-        app:startIconDrawable="@drawable/login"
+        app:startIconDrawable="@drawable/email"
         >
 
         <EditText
@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:alpha="0.6"
             android:background="@color/gray"
-            android:hint="@string/input_username" />
+            android:hint="@string/email" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -66,24 +66,42 @@
             android:hint="@string/input_password" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_confirm_password"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@id/guialinea2"
+        app:layout_constraintStart_toStartOf="@id/guialinea1"
+        app:layout_constraintTop_toBottomOf="@+id/input_password"
+        app:passwordToggleEnabled="true"
+        app:startIconDrawable="@drawable/password">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0.6"
+            android:background="@color/gray"
+            android:hint="@string/confirm_password" />
+    </com.google.android.material.textfield.TextInputLayout>
+
     <Button
-        android:id="@+id/boton1"
-        android:text="@string/boton_login"
-        android:onClick="loginToMain"
+        android:id="@+id/signup"
+        android:text="@string/sing_up"
+        android:onClick="signupToMain"
         app:layout_constraintStart_toStartOf="@id/guialinea1"
         app:layout_constraintEnd_toEndOf="@id/guialinea2"
-        app:layout_constraintTop_toBottomOf="@id/input_password"
+        app:layout_constraintTop_toBottomOf="@id/input_confirm_password"
         style="@style/buttonflat" />
 
     <Button
-        android:id="@+id/boton2"
+        android:id="@+id/cancel"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/sing_up"
-        android:onClick="openSignup"
+        android:text="@string/cancel"
+        android:onClick="cancel"
         app:layout_constraintStart_toStartOf="@id/guialinea1"
         app:layout_constraintEnd_toEndOf="@id/guialinea2"
-        app:layout_constraintTop_toBottomOf="@id/boton1"
+        app:layout_constraintTop_toBottomOf="@id/signup"
         style="@style/buttonOutLined"/>
 
     <androidx.constraintlayout.widget.Guideline
