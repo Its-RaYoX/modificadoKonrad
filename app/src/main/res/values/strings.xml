@@ -11,4 +11,9 @@
     <string name="email">Email</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="cancel">CANCEL</string>
+    <string name="perfil">Perfil</string>
+    <string name="ajustes">Ajustes</string>
+    <string name="notificaciones">Notificaciones</string>
+    <string name="cambiar_de_perfil">Cambiar de perfil</string>
+    <string name="salir">Salir</string>
 </resources>
