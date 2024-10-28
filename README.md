@@ -2,41 +2,33 @@
 
 # Aplicación de Desarrollo de Interfaces
 
-Esta aplicación ha sido creada como parte de un proyecto de desarrollo de interfaces. A continuación, se detallan las características y cambios realizados.
+Esta aplicación ha sido desarrollada como parte de un proyecto de creación de interfaces. A continuación, se presentan las características y los cambios implementados.
 
 ## Cambios Realizados
 
-- **Nueva pantalla de perfil**: se ha creado la pantalla de perfil, aunque aún no es accesible desde la aplicación.
-- **Integración de Glide**: se ha integrado la biblioteca `Glide` en las pantallas de Login y Registro para la carga eficiente de imágenes.
+- **Nueva pantalla de carga**: Se ha añadido una pantalla de carga que aparece antes de iniciar la aplicación.
 
 ## Características de la Aplicación
 
-La aplicación incluye las siguientes pantallas:
+La aplicación cuenta con las siguientes pantallas:
+
+- **Pantalla de Splash**:
+  - Ofrece una introducción visual mientras se cargan los recursos necesarios.
+  - Presenta una animación de parpadeo en el logo de la aplicación, centrado en la pantalla, para una experiencia atractiva.
+  - La transición a la pantalla de **Login** es automática y fluida, ocurriendo después de 5 segundos para mejorar la experiencia del usuario.
 
 - **Pantalla de Login**:
-  - Cuenta con una interfaz amigable para que los usuarios inicien sesión en la aplicación.
-  - Ahora se ha integrado **Glide** para la gestión de imágenes.
+  - Interfaz amigable que permite a los usuarios iniciar sesión.
+  - Integración de **Glide** para la gestión de imágenes.
 
 - **Pantalla de Registro**:
-  - Permite a los nuevos usuarios registrarse de manera sencilla.
-  - También se ha añadido **Glide** para la carga de imágenes.
+  - Facilita el registro de nuevos usuarios de manera sencilla.
+  - También incluye **Glide** para la carga de imágenes.
 
 - **Pantalla de Perfil**:
-  - Nueva pantalla que permitirá a los usuarios visualizar y editar su información personal (en desarrollo, aún no accesible).
+  - Nueva pantalla que permitirá a los usuarios visualizar y editar su información personal (en desarrollo y aún no accesible).
 
 - **Pantalla Principal**:
-  - Aún no se ha implementado, pero está planeada para futuras actualizaciones.
+  - En desarrollo y planeada para futuras actualizaciones.
 
-## Vista de Pantallas
 
-- **Login**:
-  - Interfaz completa, lista para ser utilizada. Ahora con integración de **Glide**.
-
-- **Registro**:
-  - Interfaz funcional para la creación de nuevas cuentas, con soporte para **Glide**.
-
-- **Perfil**:
-  - Nueva pantalla creada pero no accesible aún desde la interfaz principal.
-
-- **Main**:
-  - Actualmente en desarrollo; la interfaz aún no está disponible.

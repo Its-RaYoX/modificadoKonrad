@@ -28,7 +28,7 @@ public class login extends AppCompatActivity {
 
         // Usamos Glide para cargar una imagen en mLuffy
         Glide.with(this)
-                .load("https://opbr-en.bn-ent.net/assets/data/webp/character/0005_2d.png.webp") // o usa una URL si lo prefieres
+                .load("https://opbr-en.bn-ent.net/assets/data/webp/character/0005_2d.png.webp")
                 .transition(DrawableTransitionOptions.withCrossFade(2000))
                 .placeholder(new ColorDrawable(this.getResources().getColor(R.color.green)))
                 .centerCrop()
