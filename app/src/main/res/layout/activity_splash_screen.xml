@@ -9,12 +9,13 @@
 
     <TextView
         android:id="@+id/studio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-smallcaps"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:fontFamily="@font/playwritegbs_italic_variablefont_wght"
         android:text="@string/studio"
-        android:textSize="50sp"
+        android:textSize="45sp"
         android:textColor="@color/white"
+        android:textAlignment="center"
         app:layout_constraintStart_toStartOf="@+id/main"
         app:layout_constraintEnd_toEndOf="@id/main"
         app:layout_constraintTop_toBottomOf="@id/logo"
@@ -23,8 +24,8 @@
     <ImageView
         android:layout_marginTop="200dp"
         android:id="@+id/logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         app:srcCompat="@drawable/logillo"
         app:layout_constraintTop_toTopOf="@id/main"
         app:layout_constraintStart_toStartOf="@id/main"
