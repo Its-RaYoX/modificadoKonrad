@@ -1,4 +1,4 @@
-![Imagen de la Aplicación](https://i.pinimg.com/originals/3a/de/c9/3adec97bc4bb8f6155bdf45b44034783.png)
+![Imagen principal de la Aplicación](https://i.pinimg.com/originals/3a/de/c9/3adec97bc4bb8f6155bdf45b44034783.png)
 
 # Aplicación de Desarrollo de Interfaces
 
@@ -6,36 +6,44 @@ Esta aplicación ha sido desarrollada como parte de un proyecto de creación de 
 
 ## Cambios Realizados
 
-- **Actualización de animación**: Se ha actualizado la animación de la pantalla de carga.
-- **Nuevo añadido**: Se ha agregado imagenes de las diferentes pantallas de carga.
-- **Nuevo logo**: Se ha agregado un nuevo logo a la app.
+- **Actualización de animación**: Se ha mejorado la animación en la pantalla de carga.
+- **Nuevas pantallas de carga**: Se han añadido imágenes para diversas pantallas de carga.
+- **Nuevo logo**: La aplicación ahora cuenta con un logo actualizado.
 
 ## Características de la Aplicación
 
 La aplicación cuenta con las siguientes pantallas:
 
-- **Pantalla de Splash**:
-  - Ofrece una introducción visual mientras se cargan los recursos necesarios.
-  - Presenta una animación de parpadeo en el logo de la aplicación, centrado en la pantalla, para una experiencia atractiva.
-  - La transición a la pantalla de **Login** es automática y fluida, ocurriendo después de 5 segundos para mejorar la experiencia del usuario.
-    ![Imagen de la Aplicación](muestras_pantallas/pantalla_splash.jpg)
-  
-- **Pantalla de Login**:
-  - Interfaz amigable que permite a los usuarios iniciar sesión.
-  - Integración de **Glide** para la gestión de imágenes.
-    ![Imagen de la Aplicación](muestras_pantallas/pantalla_login.jpg)
+### Pantalla de Splash
 
-- **Pantalla de Registro**:
-  - Facilita el registro de nuevos usuarios de manera sencilla.
-  - También incluye **Glide** para la carga de imágenes.
-    ![Imagen de la Aplicación](muestras_pantallas/pantalla_signup.jpg)
+- Introducción visual mientras se cargan los recursos.
+- Animación de parpadeo en el logo de la aplicación, centrado para una experiencia atractiva.
+- La transición a la pantalla de **Login** es automática y fluida, ocurriendo después de 5 segundos.
 
-- **Pantalla de Perfil**:
-  - Nueva pantalla que permitirá a los usuarios visualizar y editar su información personal (en desarrollo y aún no accesible).
-    ![Imagen de la Aplicación](muestras_pantallas/pantalla_profile.jpg)
+  ![Pantalla de Splash](muestras_pantallas/pantalla_splash.jpg)
 
-- **Pantalla Principal**:
-  - En desarrollo y planeada para futuras actualizaciones.
-  - ![Imagen de la Aplicación](muestras_pantallas/pantalla_main.jpg)
+### Pantalla de Login
 
+- Interfaz amigable que permite a los usuarios iniciar sesión.
+- **Glide** integrado para gestión y carga de imágenes.
 
+  ![Pantalla de Login](muestras_pantallas/pantalla_login.jpg)
+
+### Pantalla de Registro
+
+- Interfaz sencilla para el registro de nuevos usuarios.
+- También incluye **Glide** para la carga de imágenes.
+
+  ![Pantalla de Registro](muestras_pantallas/pantalla_signup.jpg)
+
+### Pantalla de Perfil
+
+- Nueva pantalla que permitirá a los usuarios visualizar y editar su información personal (en desarrollo y aún no accesible).
+
+  ![Pantalla de Perfil](muestras_pantallas/pantalla_profile.jpg)
+
+### Pantalla Principal
+
+- En desarrollo y planeada para futuras actualizaciones.
+
+  ![Pantalla Principal](muestras_pantallas/pantalla_main.jpg)
