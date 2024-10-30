@@ -17,8 +17,6 @@ La aplicación cuenta con las siguientes pantallas:
 ### Pantalla de Splash
 
 - Introducción visual mientras se cargan los recursos.
-- Animación de parpadeo en el logo de la aplicación, centrado para una experiencia atractiva.
-- La transición a la pantalla de **Login** es automática y fluida, ocurriendo después de 5 segundos.
 
   ![Pantalla de Splash](muestras_pantallas/pantalla_splash.jpg)
 
