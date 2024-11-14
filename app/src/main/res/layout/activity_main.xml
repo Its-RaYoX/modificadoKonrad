@@ -6,4 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".main"
-    android:background="@drawable/gradient"/>
+    android:background="@drawable/gradient">
+
+    <TextView
+        android:id="@+id/ola"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ola_k_tal"
+        app:layout_constraintStart_toStartOf="@id/main"
+        app:layout_constraintEnd_toEndOf="@id/main"
+        app:layout_constraintTop_toTopOf="@id/main"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
