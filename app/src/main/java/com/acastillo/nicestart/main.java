@@ -1,11 +1,17 @@
 package com.acastillo.nicestart;
 
+
+
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,11 +19,16 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 
 import com.google.android.material.snackbar.Snackbar;
 
 
 public class main extends AppCompatActivity {
+
+    private SwipeRefreshLayout swipeLayout;
+    private WebView miVisorWeb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +43,14 @@ public class main extends AppCompatActivity {
 
         TextView ola = findViewById(R.id.ola);
         registerForContextMenu(ola);
+        miVisorWeb = (WebView) findViewById(R.id.vistaweb);
+        WebSettings webSettings = miVisorWeb.getSettings();
+        webSettings.setLoadWithOverviewMode(true);
+        webSettings.setUseWideViewPort(true);
+        miVisorWeb.loadUrl("https://www.google.com/url?sa=i&url=https%3A%2F%2Fcomicvine.gamespot.com%2Fforums%2Fbattles-7%2Fbase-luffy-vs-katakuri-2279496%2F&psig=AOvVaw26yfbxpGVl3MPHtZyK9Nvq&ust=1731668986960000&source=images&cd=vfe&opi=89978449&ved=0CBcQjhxqFwoTCOjs7-zX24kDFQAAAAAdAAAAABAE");
+
+        swipeLayout = (SwipeRefreshLayout) findViewById(R.id.myswipe);
+        swipeLayout.setOnRefreshListener(mOnRefreshListener);
     }
 
     @Override
@@ -97,4 +116,15 @@ public class main extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_appbar, menu);
         return true;
     }
+    protected SwipeRefreshLayout.OnRefreshListener
+            mOnRefreshListener = new SwipeRefreshLayout.OnRefreshListener() {
+        @Override
+        public void onRefresh() {
+            Toast toast0 = Toast.makeText(main.this, "Hi there! I don't exist :)", Toast.LENGTH_LONG);
+            toast0.show();
+            miVisorWeb.reload();
+            swipeLayout.setRefreshing(false);
+        }
+    };
+
 }
