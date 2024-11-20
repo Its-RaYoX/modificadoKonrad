@@ -1,7 +1,6 @@
 package com.acastillo.nicestart;
 
-
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.Menu;
@@ -11,7 +10,6 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,11 +19,12 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.snackbar.Snackbar;
 
-
 public class main extends AppCompatActivity {
+
+    private static final String URL_TO_LOAD = "https://i.pinimg.com/originals/ee/c0/01/eec001f246b82e45ade7b330fd092757.jpg";
 
     private SwipeRefreshLayout swipeLayout;
     private WebView miVisorWeb;
@@ -35,22 +34,36 @@ public class main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+
+        // Aplicar los márgenes de las barras del sistema (p. ej., la barra de estado)
+        setSystemBarsInsets();
+
+        // Configuración del WebView
+        miVisorWeb = findViewById(R.id.vistaweb);
+        configureWebView();
+
+        // Configuración del SwipeRefreshLayout
+        swipeLayout = findViewById(R.id.myswipe);
+        swipeLayout.setOnRefreshListener(mOnRefreshListener);
+
+        // Registro del contexto para el TextView "ola"
+        TextView ola = findViewById(R.id.ola);
+        registerForContextMenu(ola);
+    }
+
+    private void setSystemBarsInsets() {
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
 
-        TextView ola = findViewById(R.id.ola);
-        registerForContextMenu(ola);
-        miVisorWeb = (WebView) findViewById(R.id.vistaweb);
+    private void configureWebView() {
         WebSettings webSettings = miVisorWeb.getSettings();
         webSettings.setLoadWithOverviewMode(true);
         webSettings.setUseWideViewPort(true);
-        miVisorWeb.loadUrl("https://www.google.com/url?sa=i&url=https%3A%2F%2Fcomicvine.gamespot.com%2Fforums%2Fbattles-7%2Fbase-luffy-vs-katakuri-2279496%2F&psig=AOvVaw26yfbxpGVl3MPHtZyK9Nvq&ust=1731668986960000&source=images&cd=vfe&opi=89978449&ved=0CBcQjhxqFwoTCOjs7-zX24kDFQAAAAAdAAAAABAE");
-
-        swipeLayout = (SwipeRefreshLayout) findViewById(R.id.myswipe);
-        swipeLayout.setOnRefreshListener(mOnRefreshListener);
+        miVisorWeb.loadUrl(URL_TO_LOAD);
     }
 
     @Override
@@ -61,49 +74,46 @@ public class main extends AppCompatActivity {
 
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
-        final ConstraintLayout mLayout = findViewById(R.id.main);
-
-        if (id == R.id.item) {
-            Snackbar snackbar = Snackbar
-                    .make(mLayout, "Copiando", Snackbar.LENGTH_LONG)
-                    .setAction("UNDO", view -> {
-                        Snackbar snackbar1 = Snackbar.make(mLayout, "Copia cancelada", Snackbar.LENGTH_SHORT);
-                        snackbar1.show();
-                    });
-            snackbar.show();
-        } else if (id == R.id.item2) {
-            Snackbar snackbar = Snackbar
-                    .make(mLayout, "Descargando", Snackbar.LENGTH_LONG)
-                    .setAction("UNDO", view -> {
-                        Snackbar snackbar1 = Snackbar.make(mLayout, "Descarga cancelada", Snackbar.LENGTH_SHORT);
-                        snackbar1.show();
-                    });
-            snackbar.show();
-        }
-
-        return super.onOptionsItemSelected(item);
+        return handleMenuItemSelection(item);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
-        final ConstraintLayout mLayout = findViewById(R.id.main);
+        return handleMenuItemSelection(item);
+    }
 
-        if (id == R.id.item) {
-            Snackbar snackbar = Snackbar
-                    .make(mLayout, "Copiando", Snackbar.LENGTH_LONG)
-                    .setAction("UNDO", view -> {
-                        Snackbar snackbar1 = Snackbar.make(mLayout, "Copia cancelada", Snackbar.LENGTH_SHORT);
-                        snackbar1.show();
-                    });
-            snackbar.show();
+    private boolean handleMenuItemSelection(MenuItem item) {
+        int id = item.getItemId();
+        ConstraintLayout mLayout = findViewById(R.id.main);
+
+        String message;
+        String action = "";
+
+        // Determinar el mensaje y la acción según el item seleccionado
+        if (id == R.id.item1) {
+            message = "Copiando";
+            action = "UNDO";
         } else if (id == R.id.item2) {
-            Snackbar snackbar = Snackbar
-                    .make(mLayout, "Descargando", Snackbar.LENGTH_LONG)
-                    .setAction("UNDO", view -> {
-                        Snackbar snackbar1 = Snackbar.make(mLayout, "Descarga cancelada", Snackbar.LENGTH_SHORT);
-                        snackbar1.show();
+            message = "Descargando";
+            action = "UNDO";
+        }
+        else if(id==R.id.item3) {
+            message = "";
+            Intent intent = new Intent(this, profileActivity.class);
+            startActivity(intent);
+        }
+        else if(id==R.id.item4){
+            message = "";
+            showAlertDialogButtonClicked(main.this);
+        } else {
+            message = "";
+        }
+
+        if (!message.isEmpty()) {
+            Snackbar snackbar = Snackbar.make(mLayout, message, Snackbar.LENGTH_LONG)
+                    .setAction(action, view -> {
+                        Snackbar undoSnackbar = Snackbar.make(mLayout, message + " cancelada", Snackbar.LENGTH_SHORT);
+                        undoSnackbar.show();
                     });
             snackbar.show();
         }
@@ -116,15 +126,28 @@ public class main extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_appbar, menu);
         return true;
     }
-    protected SwipeRefreshLayout.OnRefreshListener
-            mOnRefreshListener = new SwipeRefreshLayout.OnRefreshListener() {
+
+    private final SwipeRefreshLayout.OnRefreshListener mOnRefreshListener = new SwipeRefreshLayout.OnRefreshListener() {
         @Override
         public void onRefresh() {
-            Toast toast0 = Toast.makeText(main.this, "Hi there! I don't exist :)", Toast.LENGTH_LONG);
-            toast0.show();
+            Toast.makeText(main.this, "Cargando imagen", Toast.LENGTH_LONG).show();
             miVisorWeb.reload();
-            swipeLayout.setRefreshing(false);
+            swipeLayout.setRefreshing(true);
         }
     };
+    private void showAlertDialogButtonClicked(main mainActivity) {
+        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this);
+        builder.setTitle("Advertencia");
+        builder.setMessage("¿Quieres salir?");
+        builder.setIcon(R.drawable.login);
+        builder.setCancelable(false);
+        builder.setPositiveButton("OK", (dialog, which) -> {
+            Intent intent = new Intent(this, login.class);
+            startActivity(intent);
+        });
+        builder.setNegativeButton("Cancel", (dialog, which) -> {
+        });
+        builder.show();
+    }
 
 }

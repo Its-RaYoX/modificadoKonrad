@@ -6,9 +6,7 @@ Esta aplicación ha sido desarrollada como parte de un proyecto de creación de 
 
 ## Cambios Realizados
 
-- **Actualización de animación**: Se ha mejorado la animación en la pantalla de carga.
-- **Nuevas pantallas de carga**: Se han añadido imágenes para diversas pantallas de carga.
-- **Nuevo logo**: La aplicación ahora cuenta con un logo actualizado.
+- **Desarrollo del main**: Se ha añadido algunos cambios en el main, se ha agregado un menu, un webviewver.
 
 ## Características de la Aplicación
 
@@ -36,12 +34,13 @@ La aplicación cuenta con las siguientes pantallas:
 
 ### Pantalla de Perfil
 
-- Nueva pantalla que permitirá a los usuarios visualizar y editar su información personal (en desarrollo y aún no accesible).
+- Pantalla donde el usuario podrá acceder a su cuenta y salir al menu de login..
 
   ![Pantalla de Perfil](muestras_pantallas/pantalla_profile.jpg)
 
 ### Pantalla Principal
 
-- En desarrollo y planeada para futuras actualizaciones.
+- Se muestra una pantalla, donde el usuario ve una imagen de webview, además de poder acceder a un
+menu con distintas opciones, como ir al perfil y salir de la aplicación.
 
   ![Pantalla Principal](muestras_pantallas/pantalla_main.jpg)

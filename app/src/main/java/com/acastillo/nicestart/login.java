@@ -23,10 +23,8 @@ public class login extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
 
-        // Inicializamos la ImageView dentro de onCreate
         ImageView mLuffy = findViewById(R.id.luffy);
 
-        // Usamos Glide para cargar una imagen en mLuffy
         Glide.with(this)
                 .load("https://opbr-en.bn-ent.net/assets/data/webp/character/0005_2d.png.webp")
                 .transition(DrawableTransitionOptions.withCrossFade(2000))
@@ -34,9 +32,6 @@ public class login extends AppCompatActivity {
                 .centerCrop()
                 .into(mLuffy);
 
-
-
-        // Ajustamos los Insets
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -44,13 +39,11 @@ public class login extends AppCompatActivity {
         });
     }
 
-    // Método para abrir la actividad de registro
     public void openSignup(View v) {
         Intent intent = new Intent(this, sign_up.class);
         startActivity(intent);
     }
 
-    // Método para ir a la pantalla principal
     public void loginToMain(View view) {
         Intent intent = new Intent(this, main.class);
         startActivity(intent);

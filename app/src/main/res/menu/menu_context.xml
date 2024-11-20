@@ -1,16 +1,36 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <!-- Elemento principal del menú -->
     <item
-        android:id="@+id/item"
-        android:title="@string/copiar"
-        android:icon="@drawable/copy"
+        android:id="@+id/item4"
+        android:title="@string/salir"
         app:showAsAction="ifRoom"/>
     <item
-        android:id="@+id/item2"
-        android:title="@string/descargar"
-        android:icon="@drawable/download"
-        app:showAsAction="ifRoom" />
+        android:id="@+id/menu_submenu"
+        android:title="Opciones"
+        app:showAsAction="ifRoom">
 
+        <menu
+            android:id="@+id/submenu_options"
+            android:title="@string/m_s_opciones">
+
+            <item
+                android:id="@+id/item1"
+                android:title="@string/copiar"
+                />
+
+            <item
+                android:id="@+id/item2"
+                android:title="@string/descargar"
+                />
+
+            <item
+                android:id="@+id/item3"
+                android:title="@string/perfil"/>
+
+        </menu>
+
+    </item>
 
 </menu>
