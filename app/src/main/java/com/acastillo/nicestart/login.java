@@ -26,13 +26,13 @@ public class login extends AppCompatActivity {
         ImageView mLuffy = findViewById(R.id.luffy);
 
         Glide.with(this)
-                .load("https://opbr-en.bn-ent.net/assets/data/webp/character/0005_2d.png.webp")
-                .transition(DrawableTransitionOptions.withCrossFade(2000))
-                .placeholder(new ColorDrawable(this.getResources().getColor(R.color.green)))
-                .centerCrop()
-                .into(mLuffy);
+            .load("https://opbr-en.bn-ent.net/assets/data/webp/character/0005_2d.png.webp")
+            .transition(DrawableTransitionOptions.withCrossFade(2000))
+            .placeholder(new ColorDrawable(this.getResources().getColor(R.color.green)))
+            .centerCrop()
+            .into(mLuffy);
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.act_login), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
@@ -48,4 +48,5 @@ public class login extends AppCompatActivity {
         Intent intent = new Intent(this, main.class);
         startActivity(intent);
     }
+
 }

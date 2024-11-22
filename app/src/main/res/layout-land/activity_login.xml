@@ -27,7 +27,7 @@
         android:id="@+id/logo"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="20dp"
         android:contentDescription="@string/logo"
         android:src="@drawable/logillo"
         app:layout_constraintStart_toStartOf="@id/guialinea1"
@@ -95,13 +95,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.10" />
+        app:layout_constraintGuide_percent="0.20" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guialinea2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.90" />
+        app:layout_constraintGuide_percent="0.80" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

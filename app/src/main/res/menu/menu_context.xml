@@ -8,7 +8,7 @@
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_submenu"
-        android:title="Opciones"
+        android:title="@string/m_s_opciones"
         app:showAsAction="ifRoom">
 
         <menu

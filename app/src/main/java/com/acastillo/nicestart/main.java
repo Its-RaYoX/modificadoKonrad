@@ -8,7 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.widget.TextView;
+import android.webkit.WebViewClient;
 import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -24,7 +24,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 public class main extends AppCompatActivity {
 
-    private static final String URL_TO_LOAD = "https://i.pinimg.com/originals/ee/c0/01/eec001f246b82e45ade7b330fd092757.jpg";
+    private static final String URL_TO_LOAD = "https://steamuserimages-a.akamaihd.net/ugc/2022713958815730466/08D4493B352255BF529F30FC3B3C919C3ADD1D6A/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false";
 
     private SwipeRefreshLayout swipeLayout;
     private WebView miVisorWeb;
@@ -45,10 +45,6 @@ public class main extends AppCompatActivity {
         // Configuración del SwipeRefreshLayout
         swipeLayout = findViewById(R.id.myswipe);
         swipeLayout.setOnRefreshListener(mOnRefreshListener);
-
-        // Registro del contexto para el TextView "ola"
-        TextView ola = findViewById(R.id.ola);
-        registerForContextMenu(ola);
     }
 
     private void setSystemBarsInsets() {
@@ -97,14 +93,14 @@ public class main extends AppCompatActivity {
             message = "Descargando";
             action = "UNDO";
         }
-        else if(id==R.id.item3) {
+        else if(id == R.id.item3) {
             message = "";
             Intent intent = new Intent(this, profileActivity.class);
             startActivity(intent);
         }
-        else if(id==R.id.item4){
+        else if(id == R.id.item4){
             message = "";
-            showAlertDialogButtonClicked(main.this);
+            showAlertDialogButtonClicked();
         } else {
             message = "";
         }
@@ -130,24 +126,40 @@ public class main extends AppCompatActivity {
     private final SwipeRefreshLayout.OnRefreshListener mOnRefreshListener = new SwipeRefreshLayout.OnRefreshListener() {
         @Override
         public void onRefresh() {
+            // Mostrar un Toast indicando que se está cargando
             Toast.makeText(main.this, "Cargando imagen", Toast.LENGTH_LONG).show();
+
+            // Recargar el WebView
             miVisorWeb.reload();
+
+            // Establecer la animación de refresco
             swipeLayout.setRefreshing(true);
+
+            // Usar un WebViewClient para detectar cuando la carga de la página se haya completado
+            miVisorWeb.setWebViewClient(new WebViewClient() {
+                @Override
+                public void onPageFinished(WebView view, String url) {
+                    super.onPageFinished(view, url);
+
+                    // Detener la animación de refresco una vez que la página se haya cargado
+                    swipeLayout.setRefreshing(false);
+                }
+            });
         }
     };
-    private void showAlertDialogButtonClicked(main mainActivity) {
+
+    private void showAlertDialogButtonClicked() {
         MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this);
-        builder.setTitle("Advertencia");
-        builder.setMessage("¿Quieres salir?");
+        builder.setTitle("Salir de la aplicación");
+        builder.setMessage("¿Estás seguro?");
         builder.setIcon(R.drawable.login);
         builder.setCancelable(false);
-        builder.setPositiveButton("OK", (dialog, which) -> {
+        builder.setPositiveButton("Sí", (dialog, which) -> {
             Intent intent = new Intent(this, login.class);
             startActivity(intent);
         });
-        builder.setNegativeButton("Cancel", (dialog, which) -> {
+        builder.setNegativeButton("No", (dialog, which) -> {
         });
         builder.show();
     }
-
 }
